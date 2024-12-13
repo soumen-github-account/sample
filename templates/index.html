@@ -1,0 +1,59 @@
+{% load static tailwind_tags %}
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+    <title>Django Tailwind</title>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta http-equiv="X-UA-Compatible" content="ie=edge">
+		{% tailwind_css %}
+	</head>
+
+	<body class="bg-slate-200">
+		<div class="mt-10 w-full flex justify-center">
+			<div class="w-80 bg-pink-200 rounded pb-4">
+				<h1 class="flex justify-center mt-10 text-2xl">Try Page</h1>
+				<form action="{% url "message" %}" method="POST">
+					{% csrf_token %}
+					<div class="grid max-w-50 justify-center pt-7 mt-30">
+						<input class="w-full mb-10" type="text" name="uname" placeholder="Enter your name">
+						<input class="w-full mb-10" type="text" name="message" placeholder="send a message">
+						
+					</div>
+					<div class="w-full flex justify-center">
+					<button type="submit" class="w-20 h-10 bg-green-600 text-white rounded">Submit</button>
+				</div>
+				</form>
+			</div>
+		</div>
+		<div class="flex w-full gap-6 p-10 justify-center">
+			{% for item in prod %}
+			<div>
+				<img src="{{ item.image.url }}" class="w-60" alt="">
+				{% comment %} {% static "assets/box1-2.jpg" %} {% endcomment %}
+				<div>
+					<p>this is the best</p>
+				</div>
+			</div>
+			{% endfor %}
+			{% comment %} <div>
+				<img src="{% static "assets/box1-2.jpg" %}" class="w-60" alt="">
+				<div>
+					<p>this is the best</p>
+				</div>
+			</div>
+			<div>
+				<img class="w-60" src="{% static "assets/box1-2.jpg" %}" alt="">
+				<div>
+					<p>this is the best</p>
+				</div>
+			</div>
+			<div>
+				<img src="{% static "assets/box1-2.jpg" %}" class="w-60" alt="">
+				<div>
+					<p>this is the best</p>
+				</div>
+			</div> {% endcomment %}
+		</div>
+	</body>
+</html>
