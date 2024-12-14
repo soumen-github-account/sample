@@ -22,7 +22,5 @@
               "src": "/(.*)",
               "dest": "sample/wsgi.py"
             }
-          ],
-          "outputDirectory": "ui/staticfiles"
-    
+          ]
 }
